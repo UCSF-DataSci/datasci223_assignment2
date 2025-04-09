@@ -95,56 +95,29 @@ def load_patient_data(filepath):
     with open(filepath, 'r') as file:
         return json.load(file)
 
-def calculate_dosage(patient):
+def calculate_dosage(weight: float, age: int, condition: str) -> float:
     """
-    Calculate medication dosage for a patient.
+    Calculate medication dosage based on patient characteristics.
     
     Args:
-        patient (dict): Patient dictionary with 'weight', 'medication', and 'is_first_dose' keys
+        weight: Patient weight in kg
+        age: Patient age in years
+        condition: Medical condition
         
     Returns:
-        dict: Patient dictionary with added dosage information
+        Recommended dosage in mg
     """
-    # Create a copy of the patient data to avoid modifying the original
-    patient_with_dosage = patient.copy()
+    # TODO: Fix the bugs in this function
+    # Hint: Look for these common issues:
+    # 1. Division by zero
+    # 2. Type conversion errors
+    # 3. Missing condition checks
+    # 4. Incorrect mathematical operations
     
-    # Extract patient information
-    weight = patient['weight']
-    medication = patient['medication'] # This bug is diabolical
+    # BUG: Add your bug description here
+    # FIX: Add your fix description here
     
-    # Get the medication factor
-    factor = DOSAGE_FACTORS.get(medication + 's', 0)
-    
-    # Calculate base dosage
-    base_dosage = weight + factor
-    
-    # Determine if loading dose should be applied
-    is_first_dose = patient.get('is_first_dose', False)
-    loading_dose_applied = False
-    final_dosage = base_dosage
-    
-    # Apply loading dose if it's the first dose and the medication uses loading doses
-    if is_first_dose and medication in LOADING_DOSE_MEDICATIONS:
-        loading_dose_applied = True
-        final_dosage = base_dosage * 2
-    
-    # Add dosage information to the patient record
-    patient_with_dosage['base_dosage'] = base_dosage
-    patient_with_dosage['loading_dose_applied'] = loading_dose_applied
-    patient_with_dosage['final_dosage'] = final_dosage
-    
-    # Add warnings based on medication
-    warnings = []
-    if medication == "epinephrin":
-        warnings.append("Monitor for arrhythmias")
-    elif medication == "amiodarone":
-        warnings.append("Monitor for hypotension")
-    elif medication == "fentynal":
-        warnings.append("Monitor for respiratory depression")
-    
-    patient_with_dosage['warnings'] = warnings
-    
-    return patient_with_dosage
+    return 0.0
 
 def calculate_all_dosages(patients):
     """
@@ -162,7 +135,7 @@ def calculate_all_dosages(patients):
     # Process all patients
     for patient in patients:
         # Calculate dosage for this patient
-        patient_with_dosage = calculate_dosage(patient)
+        patient_with_dosage = calculate_dosage(patient['weight'], patient['age'], patient['condition'])
         
         # Add to our list
         patients_with_dosages.append(patient_with_dosage)

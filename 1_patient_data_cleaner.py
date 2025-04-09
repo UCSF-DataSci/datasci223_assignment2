@@ -54,37 +54,27 @@ def load_patient_data(filepath):
     with open(filepath, 'r') as file:
         return json.load(file)
 
-def clean_patient_data(patients):
+def clean_patient_data(data: dict) -> dict:
     """
-    Clean patient data by:
-    - Capitalizing names
-    - Converting ages to integers
-    - Filtering out patients under 18
+    Clean and validate patient data.
     
     Args:
-        patients (list): List of patient dictionaries
+        data: Dictionary containing patient information
         
     Returns:
-        list: Cleaned list of patient dictionaries
+        Cleaned patient data dictionary
     """
-    cleaned_patients = []
+    # TODO: Fix the bugs in this function
+    # Hint: Look for these common issues:
+    # 1. Type conversion errors (str vs int)
+    # 2. Missing key checks
+    # 3. Invalid value ranges
+    # 4. Incorrect string operations
     
-    for patient in patients:
-        # Capitalize name (BUG: typo in key 'nage' instead of 'name')
-        patient['nage'] = patient['name'].title()
-        
-        # BUG: Wrong method name (fill_na vs fillna)
-        patient['age'] = patient['age'].fill_na(0)
-        
-        # BUG: Wrong method name (drop_duplcates vs drop_duplicates)
-        patient = patient.drop_duplcates()
-        
-        # BUG: Wrong comparison operator (= vs ==)
-        if patient['age'] = 18:
-            # BUG: Logic error - keeps patients under 18 instead of filtering them out
-            cleaned_patients.append(patient)
+    # BUG: Add your bug description here
+    # FIX: Add your fix description here
     
-    return cleaned_patients
+    return data
 
 def main():
     """Main function to run the script."""

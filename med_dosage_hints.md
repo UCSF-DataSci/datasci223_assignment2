@@ -1,4 +1,4 @@
-# Debugging Hints
+# Medication Dosage Calculator Hints
 
 ## General Approach
 1. Start by running the script with the sample data
