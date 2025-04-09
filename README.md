@@ -16,14 +16,10 @@ This assignment has two parts:
 ### Tasks
 
 - Fix the provided buggy scripts:
-  - `patient_data_cleaner_buggy.py` (cleans and filters patient records)
-  - `med_dosage_calculator_buggy.py` (calculates medication dosages)
-- The bugs are **typical beginner mistakes** such as:
-  - Typos and wrong variable names (`NameError`)
-  - Off-by-one errors (`IndexError`)
-  - Incorrect logic or formulas
-  - Syntax issues (`SyntaxError`, `IndentationError`)
-- The code intent is **simple and easy to reason about** (e.g., cleaning patient data, calculating dosages).
+  - `patient_data_cleaner.py` (cleans and filters patient records)
+  - `med_dosage_calculator.py` (calculates medication dosages)
+- The first script has labeled bugs to help you get started
+- The second script has more subtle bugs that require using a debugger to find
 - Use **any debugging method you prefer**:
   - Print statements
   - `pdb`
@@ -33,8 +29,9 @@ This assignment has two parts:
   - `test_patient_data_cleaner.py`
   - `test_med_dosage_calculator.py`
 - Add comments explaining:
-  - What was wrong
-  - How you fixed it
+  - What was wrong (use the comment format: `# BUG: description of the bug`)
+  - How you fixed it (use the comment format: `# FIX: description of the fix`)
+- **Important for autograding**: Do not change function names or return types
 
 ### Grading
 
@@ -43,40 +40,69 @@ This assignment has two parts:
 - Clean, readable code
 
 ---
-
 ## Part 2: Big Data Analysis (30%)
 
 ### Tasks
 
-- Use `generate_large_health_data.py` to create `patients_large.csv`
-- Use `analyze_large_health_data.py` with **polars** backend
-- Submit:
-  - Your command(s) used
-  - The resulting `summary.csv`
-  - A brief reflection (1 paragraph):
-    - Challenges faced
-    - How polars helped
-    - What you learned
+1. **Time Series Analysis** (15%):
+   - Use the provided script to generate a large dataset of patient vitals over time
+   - Implement a polars-based analysis that:
+     - Identifies patients with concerning vital sign trends
+     - Calculates rolling averages of vitals
+     - Detects anomalies in vital signs
+   - Use polars' lazy evaluation for efficiency
+   - Output results as parquet files with partitioning
+
+2. **Patient Cohort Analysis** (10%):
+   - Group patients by diagnosis and demographics
+   - Calculate statistics for each cohort:
+     - Treatment effectiveness
+     - Average length of stay
+     - Readmission rates
+   - Use polars' streaming capabilities for memory efficiency
+   - Generate visualizations of the results
+
+3. **Documentation** (5%):
+   - Write a brief report in `analysis.md`:
+     - Explain your analysis approach
+     - Discuss any patterns or insights found
+     - Describe how you used polars' features for efficiency
+     - Include sample visualizations
+     - Suggest potential clinical applications
 
 ### Grading
 
-- Correct output file
-- Clear reflection
-- Demonstrated use of polars lazy/streaming
+- Correct implementation of time series analysis
+- Effective use of polars' features
+- Quality of insights in cohort analysis
+- Clear and insightful documentation
+- Code efficiency and organization
 
 ---
 
 ## Submission Checklist
 
-- Fixed Python scripts with comments
-- Passing pytest tests
-- `summary.csv` file
-- Reflection paragraph
+- Fixed Python scripts with bug documentation
+- All pytest tests passing
+- Time series analysis implementation
+- Cohort analysis results
+- `analysis.md` with documentation
+- Generated parquet files and visualizations
+
+### Autograding Requirements
+
+For successful autograding:
+1. Do not rename any functions or files
+2. Follow the exact file naming conventions specified
+3. Ensure your code runs without errors using the provided test scripts
+4. Use the required comment formats for bug documentation
+5. Make sure all output files have the exact column names specified
 
 ---
 
 ## Notes
 
 <!--
-Debugging skills are essential for all coding work. Handling big data is increasingly important in health data science.
+The debugging portion teaches systematic debugging with increasing difficulty.
+The big data portion focuses on real-world health data analysis scenarios.
 -->

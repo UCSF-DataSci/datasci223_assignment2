@@ -2,11 +2,37 @@
 """
 Patient Data Cleaner
 
-This script loads patient data from a JSON file, cleans it by:
-1. Capitalizing patient names
-2. Converting ages to integers
-3. Filtering out patients under 18
-4. Printing the cleaned list
+This script standardizes and filters patient records according to specific rules:
+
+Data Cleaning Rules:
+1. Names: Capitalize each word (e.g., "john smith" -> "John Smith")
+2. Ages: Convert to integers, set invalid ages to 0
+3. Filter: Remove patients under 18 years old
+4. Remove any duplicate records
+
+Input JSON format:
+    [
+        {
+            "name": "john smith",
+            "age": "32",
+            "gender": "male",
+            "diagnosis": "hypertension"
+        },
+        ...
+    ]
+
+Output:
+- Cleaned list of patient dictionaries
+- Each patient should have:
+  * Properly capitalized name
+  * Integer age (≥ 18)
+  * Original gender and diagnosis preserved
+- No duplicate records
+- Prints cleaned records to console
+
+Example:
+    Input: {"name": "john smith", "age": "32", "gender": "male", "diagnosis": "flu"}
+    Output: {"name": "John Smith", "age": 32, "gender": "male", "diagnosis": "flu"}
 
 Usage:
     python patient_data_cleaner.py
