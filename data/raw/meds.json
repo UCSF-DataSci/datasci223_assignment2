@@ -1,0 +1,20 @@
+[
+    {
+        "name": "john smith",
+        "weight": 80.0,
+        "med": "lisinopril",
+        "frequency": "daily"
+    },
+    {
+        "name": "sarah johnson",
+        "weight": 60.0,
+        "med": "oseltamivir",
+        "frequency": "twice daily"
+    },
+    {
+        "name": "robert williams",
+        "weight": 90.0,
+        "med": "metformin",
+        "frequency": "daily"
+    }
+] 
